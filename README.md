@@ -22,8 +22,8 @@ código-fonte e as instruções de uso.
 
 | Pasta | Conteúdo |
 |---|---|
-| `python/` | Código-fonte do programa (`main.py` e `estoque.py`). |
-| `executavel/` | `estoque.exe`, versão empacotada para Windows, que dispensa a instalação do Python. |
+| `python/` | Código-fonte do programa (`main.py` e `estoque.py`) e a pasta `dados` com a planilha de testes. |
+| `executavel/` | `estoque.exe`, versão empacotada para Windows, que dispensa a instalação do Python. Não inclui a planilha de testes. |
 
 O programa separa a interface das regras e estruturas:
 
@@ -47,6 +47,12 @@ O executável foi gerado a partir do código da pasta `python/` com o PyInstalle
 (`pyinstaller --onefile --name estoque main.py`). Os arquivos de dados são criados
 na subpasta `dados`, ao lado do `.exe`.
 
+O executável **não vem com a planilha de testes**: na primeira execução o estoque
+começa vazio, com as categorias padrão, e os arquivos CSV são criados conforme o uso.
+A planilha de testes acompanha apenas a versão em Python (`python/dados`). Para
+usá-la também no executável, copie a pasta `python/dados` para `executavel/dados`
+antes de abrir o programa.
+
 ## Execução pelo código-fonte
 
 - Python 3.12 ou superior.
@@ -60,6 +66,11 @@ python python/main.py
 
 O menu oferece as opções numeradas de cadastro a salvamento. Use `0` para salvar e
 sair; a opção `13` salva sem encerrar o programa.
+
+A versão em Python já vem com a planilha de testes em `python/dados`: 18 produtos
+fictícios em três categorias (`CL` Calcados, `EP` Equipamento de Protecao Individual
+e `UV` Uniforme e Vestimenta), dos quais 4 aparecem no relatório de reposição. Para
+começar com o estoque vazio, apague ou renomeie a pasta `python/dados`.
 
 As categorias iniciais são `EP` (Equipamento de Protecao Individual) e `UV`
 (Uniforme e Vestimenta). Categorias adicionais podem ser cadastradas pelo menu.
@@ -92,6 +103,5 @@ carregar dados antigos sem `sequencias.csv`, o sistema recupera o maior código 
 presente no estoque; não é possível inferir números que já tinham sido removidos
 antes da criação do arquivo de sequências.
 
-Nenhum estoque pessoal ou catálogo de demonstração foi copiado para este repositório.
-Na primeira execução, o estoque começa vazio e as categorias padrão são carregadas
-em memória.
+A planilha de testes em `python/dados` contém apenas produtos fictícios; nenhum
+estoque real foi copiado para este repositório.
