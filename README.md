@@ -18,20 +18,36 @@ código-fonte e as instruções de uso.
   integral antes de inserir os produtos.
 - Salvamento automático das alterações bem-sucedidas.
 
-## Organização do código
+## Organização do repositório
+
+| Pasta | Conteúdo |
+|---|---|
+| `python/` | Código-fonte do programa (`main.py` e `estoque.py`). |
+| `executavel/` | `estoque.exe`, versão empacotada para Windows, que dispensa a instalação do Python. |
 
 O programa separa a interface das regras e estruturas:
 
 | Arquivo | Responsabilidade |
 |---|---|
-| `main.py` | Interface de console: banner, menu, entrada e saída de informações. |
-| `estoque.py` | Backend: produto, validações, estruturas de dados, regras de negócio e persistência CSV. |
+| `python/main.py` | Interface de console: banner, menu, entrada e saída de informações. |
+| `python/estoque.py` | Backend: produto, validações, estruturas de dados, regras de negócio e persistência CSV. |
 
 O menu utiliza a tabela hash implementada no backend. A lista sequencial e o Merge
 Sort também são implementados manualmente; `DicionarioNativo` existe como referência
 para comparação de estrutura.
 
-## Requisitos e execução
+## Execução pelo executável (Windows)
+
+Basta abrir `executavel/estoque.exe` com um clique duplo ou pelo terminal. Não é
+necessário ter Python instalado. Na primeira execução o Windows pode exibir o aviso
+do SmartScreen por se tratar de um programa sem assinatura digital; escolha
+"Mais informações" e "Executar assim mesmo".
+
+O executável foi gerado a partir do código da pasta `python/` com o PyInstaller
+(`pyinstaller --onefile --name estoque main.py`). Os arquivos de dados são criados
+na subpasta `dados`, ao lado do `.exe`.
+
+## Execução pelo código-fonte
 
 - Python 3.12 ou superior.
 - Somente biblioteca padrão do Python; não é necessário instalar dependências.
@@ -39,7 +55,7 @@ para comparação de estrutura.
 Na pasta do repositório, execute:
 
 ```powershell
-python main.py
+python python/main.py
 ```
 
 O menu oferece as opções numeradas de cadastro a salvamento. Use `0` para salvar e
@@ -50,7 +66,8 @@ As categorias iniciais são `EP` (Equipamento de Protecao Individual) e `UV`
 
 ## Arquivos de dados
 
-Os CSVs são criados na subpasta `dados`, ao lado de `main.py`:
+Os CSVs são criados na subpasta `dados`, ao lado do programa em uso (`python/main.py`
+ou `executavel/estoque.exe`):
 
 | Arquivo | Conteúdo |
 |---|---|
