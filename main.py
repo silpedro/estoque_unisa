@@ -1,10 +1,17 @@
 """Frontend de console; as regras e estruturas ficam no modulo estoque (backend)."""
 
+import sys
 from pathlib import Path
 
 from estoque import Estoque, TabelaHash, formatar_codigo, interpretar_codigo
 
-PASTA_DADOS = Path(__file__).resolve().parent / "dados"
+# Quando empacotado como executável (PyInstaller), os dados ficam ao lado do .exe;
+# rodando como script, ficam ao lado de main.py.
+if getattr(sys, "frozen", False):
+    PASTA_BASE = Path(sys.executable).resolve().parent
+else:
+    PASTA_BASE = Path(__file__).resolve().parent
+PASTA_DADOS = PASTA_BASE / "dados"
 ARQUIVO_ESTOQUE = PASTA_DADOS / "estoque.csv"
 ARQUIVO_CATEGORIAS = PASTA_DADOS / "categorias.csv"
 ARQUIVO_SEQUENCIAS = PASTA_DADOS / "sequencias.csv"
