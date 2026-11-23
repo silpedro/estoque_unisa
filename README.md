@@ -1,9 +1,10 @@
 # Controle de Estoque — `estoque_unisa`
 
 Aplicação de console em Python para cadastrar produtos, controlar movimentações de
-estoque e acompanhar itens que precisam de reposição. Este repositório é uma base
-privada de testes do sistema; não inclui os documentos acadêmicos nem os dados de
-demonstração do projeto de referência.
+estoque e acompanhar itens que precisam de reposição. Desenvolvida para o Projeto
+Integrador: Laboratório de Programação (Universidade Santo Amaro, Engenharia de
+Software). O artigo do projeto é entregue separadamente; este repositório contém o
+código-fonte e as instruções de uso.
 
 ## Funcionalidades
 
@@ -77,15 +78,3 @@ antes da criação do arquivo de sequências.
 Nenhum estoque pessoal ou catálogo de demonstração foi copiado para este repositório.
 Na primeira execução, o estoque começa vazio e as categorias padrão são carregadas
 em memória.
-
-## Validação e escopo
-
-Durante o desenvolvimento, a aplicação passou pelos 25 testes da suíte de referência
-e por dois testes adicionais para a persistência de códigos e o salvamento automático.
-A suíte de testes não está incluída neste repositório; por isso, esses testes não
-podem ser executados diretamente daqui.
-
-Este repositório contém a aplicação de console, mas não inclui os scripts de benchmark,
-massas de dados experimentais, resultados acadêmicos ou figuras do projeto de
-referência. Os tempos publicados na documentação desse projeto não são medições
-geradas por este repositório.
